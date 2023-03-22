@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Judul Halaman -->
+	<title>Deploy Sederhana</title>
+	
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!-- Icon -->
+	<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+	
+	<!-- CSS -->
+	<link rel="stylesheet" href={{ url_for('static', filename='/css/bootstrap.min.css') }} type="text/css">
+	<link rel="stylesheet" href={{ url_for('static', filename='/css/client_side.css') }}  type="text/css">
+	
+	<!-- JavaScript -->
+	<script src={{ url_for('static', filename='/js/jquery_3.6.0.min.js') }} ></script>
+	<script src={{ url_for('static', filename='/js/bootstrap_3.4.1.min.js') }} ></script>
+</head>
+
+<body id="halamanku" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+	<!-- Navigation Bar -->
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			
+			<!-- Logo -->
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#halamanku">&#160; Deploy Sederhana </a>
+			</div>
+		
+		</div>
+	</nav>
+
+	<!-- Bagian Halaman (Informasi) -->
+	<div id="informasi" class="container-fluid">
+		<br>
+		<br>
+		<div class="row">
+			<div class="col-sm-6">
+				<h2>Face Mask</h2>
+				<h4>Face Mask Image Classification with CNN</h4><br>
+				<p style="text-align: justify;text-justify: inter-word;">
+					Untuk mengklasifisikan pakai/tidak masker dari gambar yang diberikan.
+					Adapun dataset yang digunakan lebih dari 14000 gambar
+					Untuk dapat menggunakan aplikasi ini, pengguna hanya mengunggah sebuah gambar dengan format 'JPG'. 
+					Hasil deteksi objek akan ditampilkan setelah pengguna mengunggah gambar tersebut.
+				</p>
+				<br>
+
+				<!-- Tombol Mulai -->
+				<nav id="navgo" class="navbar" style="background-color:#ffffff;z-index: 0;">
+					<ul class="nav nav-pills">
+						<li class="nav-item">
+							<a class="btn btn-default btn-lg" href="#aplikasi" style="background-color:#245953">Mulai</a>
+						</li>
+					</ul>
+				</nav>
+
+			</div>
+			<div class="col-sm-6">
+				<br>
+				<br>
+				<!-- Gambar Deskripsi Aplikasi -->
+				<div align="center">
+					<img src={{ url_for('static', filename='/images/simple19.JPG') }} height="300" ></img>
+				</div>
+			</div>
+		</div>
+		<br>
+	</div>
+
+	<hr style="height:2px;border-width:0;color:#245953;background-color:#245953">
+
+	<!-- Bagian Halaman (Aplikasi) -->
+	<div id="aplikasi" class="body-pred" tabindex="0">
+		<div class="row">
+			<div class="col-sm-6">
+				</br>
+				<h3 style="margin-left: 50px;">Upload Gambar </h3>
+					<form style="margin-left: 50px;" enctype="multipart/form-data" method="post" action="{{ url_for('apiDeteksi') }}">
+						<!-- Input atau Upload Gambar dari Pengguna -->
+						<img src={{ url_for('static', filename='/images/masker.JPG') }} width="150" ></img>
+						<h3>Silahkan upload sebuah gambar</h3>
+						<p>
+							<input type="file" id="input_gambar" name="file">
+						</p>
+						</br>
+						<!-- Tombol Prediksi -->
+						<button type="submit" id="prediksi_submit" class="btn btn-default btn-lg">Prediksi</button>
+					</form>
+			</div>
+			<div class="col-sm-6">
+				<br>
+				<!-- Bagian Halaman untuk Hasil Prediksi -->
+				<div id="hasil_prediksi" align="center">
+					<!-- Hasil Prediksi akan ditampilkan di sini-->
+				</div>
+			</div>
+		</div>
+		</br>
+		</br>
+		</br>
+		</br>
+	</div>
+
+	<!-- JavaScript untuk Animasi Scroll dan Prediksi Model -->
+	<script  src={{ url_for('static', filename='/js/client_side.js') }}></script>
+
+</body>
+</html>
