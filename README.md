@@ -1,5 +1,3 @@
-Install Module
-pip install - r requirements.txt
+Install Module -> pip install - r requirements.txt
 
-To run it
-python app.py
+To run it -> python app.py
